@@ -22,11 +22,6 @@ if (isset($_POST["submit"])) {
         echo "Sorry, file already exists.";
         $uploadOk = 0;
     }
-// Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
 // Allow certain file formats
     if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
         && $imageFileType != "gif") {
@@ -71,9 +66,13 @@ function addCategory($category_url)
 <body>
 
 <form action="category.php" method="post" enctype="multipart/form-data">
+    Category Name
     <input type="text" name="category" required>
+    <br>
     Select image to upload:
+    <br>
     <input type="file" name="fileToUpload" id="fileToUpload">
+    <br>
     <input type="submit" value="Upload Image" name="submit">
 </form>
 

@@ -18,6 +18,7 @@ class Image
     {
         $this->conn = $db;
     }
+
     public function create()
     {
 
@@ -43,12 +44,12 @@ class Image
         return false;
     }
 
-    public function read()
+    public function read($cat)
     {
-
-        //select all data
-        $query = "SELECT  * FROM ".$this->table_name;
-
+        $query = "SELECT  * FROM " . $this->table_name;
+        if ($cat != "") {
+            $query = $query . ' WHERE category = "' . $cat . '"';
+        }
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
 
