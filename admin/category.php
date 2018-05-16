@@ -2,6 +2,11 @@
 include_once '../includes/database.php';
 include_once '../includes/category.php';
 
+session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    die();
+}
 
 if (isset($_POST["submit"])) {
     $target_dir = "../uploads/category_images/";

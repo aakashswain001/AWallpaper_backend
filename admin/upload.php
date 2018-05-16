@@ -3,6 +3,11 @@ include_once '../includes/database.php';
 include_once '../includes/category.php';
 include_once '../includes/images.php';
 
+session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    die();
+}
 
 if (isset($_POST['submit'])) {
     if (count($_FILES['upload']['name']) > 0) {
