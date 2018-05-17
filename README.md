@@ -27,14 +27,17 @@ CREATE TABLE `images` (
   `id` int(20) NOT NULL,
   `image` varchar(60) NOT NULL,
   `category` varchar(30) NOT NULL,
-  `tag` varchar(60) NOT NULL
+  `tag` varchar(60) NOT NULL,
+  `source` varchar(30) NOT NULL,
+  `downloads` int(10) NOT NULL DEFAULT '0',
+  `likes` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `images`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `images`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=593;
 
 -----------------------------------
 Users
