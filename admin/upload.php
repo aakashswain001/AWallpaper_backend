@@ -20,8 +20,8 @@ if (isset($_POST['submit'])) {
             if ($tmpFilePath != "") {
 
                 //save the filename
-                $shortname = $_FILES['upload']['name'][$i];
-                $finalPath = round(microtime(true) * 1000) . '-' . $_FILES['upload']['name'][$i];
+          //      $shortname = $_FILES['upload']['name'][$i];
+                $finalPath = round(microtime(true) * 1000);
                 //save the url and the file
                 $filePath = "../uploads/" . $finalPath;
 
