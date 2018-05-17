@@ -29,7 +29,9 @@ if ($num > 0) {
             "image" => $image,
             "category" => $category,
             "tag" => html_entity_decode($tag),
-            "sent" => $get_category,
+            "source" => $source,
+            "downloads" => $downloads,
+            "likes" => $likes,
         );
 
         array_push($images_arr["records"], $image_item);
