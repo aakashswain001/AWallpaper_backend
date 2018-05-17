@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
                 //save the filename
                 $shortname = $_FILES['upload']['name'][$i];
                 $imageFileType = strtolower(pathinfo($shortname, PATHINFO_EXTENSION));
-                $finalPath = round(microtime(true) * 1000).'.'.$imageFileType;
+                $finalPath = round(microtime(true) * 1000) . '.' . $imageFileType;
                 //save the url and the file
                 $filePath = "../uploads/" . $finalPath;
 
@@ -55,7 +55,7 @@ function addImage($path)
     $image->image = $path;
     $image->category = $_POST['category'];
     $image->tag = $_POST['tag'];
-
+    $image->source = $_POST['source'];
     if ($image->create()) {
         echo "<br><br>Image successfully stored";
     } else {
@@ -89,6 +89,11 @@ function addImage($path)
             }
             ?>
         </select>
+    </div>
+
+    <div>
+        <label for='source'>Source</label>
+        <input type="text" name="source"/>
     </div>
     <div>
         <label for='tag'>Tags: (must be space separated)</label>

@@ -13,6 +13,9 @@ class Image
     public $image;
     public $category;
     public $tag;
+    public $source;
+    public $downloads;
+    public $likes;
 
     public function __construct($db)
     {
@@ -26,7 +29,7 @@ class Image
         // query to insert record
         $query = "INSERT INTO      " . $this->table_name . "
             SET
-                image=:image,category=:category,tag=:tag";
+                image=:image,category=:category,tag=:tag,source=:source";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -35,6 +38,7 @@ class Image
         $stmt->bindParam(":image", $this->image);
         $stmt->bindParam(":category", $this->category);
         $stmt->bindParam(":tag", $this->tag);
+        $stmt->bindParam(":source", $this->source);
 
         // execute query
         if ($stmt->execute()) {
