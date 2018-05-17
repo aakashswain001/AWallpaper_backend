@@ -21,9 +21,9 @@ if (isset($_POST['submit'])) {
 
                 //save the filename
                 $shortname = $_FILES['upload']['name'][$i];
+                $imageFileType = strtolower(pathinfo($shortname, PATHINFO_EXTENSION));
                 $finalPath = round(microtime(true) * 1000).'.'.$imageFileType;
                 //save the url and the file
-                $imageFileType = strtolower(pathinfo($shortname, PATHINFO_EXTENSION));
                 $filePath = "../uploads/" . $finalPath;
 
                 //Upload the file into the temp dir
